@@ -1,6 +1,6 @@
 {
   "name": "@fgpe/keycloak-theme",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "FGPE Keycloak Theme",
   "contributors": [
     "José Carlos Paiva <jose.c.paiva@inesctec.pt>"

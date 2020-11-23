@@ -1,0 +1,36 @@
+{
+  "name": "@fgpe/keycloak-theme",
+  "version": "0.1.0",
+  "description": "FGPE Keycloak Theme",
+  "contributors": [
+    "José Carlos Paiva <jose.c.paiva@inesctec.pt>"
+  ],
+  "private": true,
+  "license": "GPL-3.0",
+  "scripts": {
+    "build": "node bin/build-theme.js",
+    "dev": "npm run build && docker-compose up --build",
+    "lint": "eslint --ext .js --ignore-path .gitignore .",
+    "scss:build": "sass --load-path=./node_modules scss/style.scss:theme/login/resources/css/login.css --update",
+    "scss:watch": "npm run scss:build -- --watch",
+    "stylelint": "npx stylelint \"./custom/scss/*.scss\""
+  },
+  "devDependencies": {
+    "bootstrap": "^4.5.0",
+    "eslint": "^7.5.0",
+    "fs-extra": "^9.0.1",
+    "jquery": "^3.5.1",
+    "sass": "^1.26.10",
+    "stylelint": "^13.6.1",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-scss": "^3.18.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FGPE-Erasmus/keycloak-theme.git"
+  },
+  "bin": {
+    "build-keycloak-theme": "bin/build-theme.js"
+  }
+}

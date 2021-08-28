@@ -90,7 +90,7 @@
                     <div class="form-check">
                         <input type="checkbox" class="form-check-input" id="user.attributes.terms"
                                name="user.attributes.terms" required/>
-                        <label for="user.attributes.terms" class="form-check-label">${kcSanitize(msg('terms'))?no_esc}</label>
+                        <label for="user.attributes.terms" class="form-check-label">${msg('terms')?no_esc}</label>
                     </div>
                 </div>
                 <div class="${properties.kcFormGroupClass!}">

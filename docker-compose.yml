@@ -2,6 +2,7 @@ version: "3.3"
 services:
   keycloak:
     image: keycloak
+    restart: unless-stopped
     build:
       context: .
     volumes:
@@ -14,11 +15,24 @@ services:
     ports:
       - "10001:8080"
     environment:
+      - DB_VENDOR=POSTGRES
+      - DB_ADDR=postgres
+      - DB_DATABASE=keycloakdb
+      - DB_USER=admin
+      - DB_PASSWORD=password
       - KEYCLOAK_USER=admin
       - KEYCLOAK_PASSWORD=6Fka+UM=g4mCfeCUNU6:ZFTm
       - KEYCLOAK_IMPORT=/tmp/fgpe-realm.json
+  postgres:
+    image: postgres:11-alpine
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=keycloakdb
   mailhog:
     image: mailhog/mailhog:latest
+    restart: unless-stopped
     restart: always
     ports:
       - 1025:1025
